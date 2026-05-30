@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  api_translate:
+    build: .
+    container_name: api_translate
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./.env:/app/.env
+      - ./exports:/app/exports
+    restart: unless-stopped

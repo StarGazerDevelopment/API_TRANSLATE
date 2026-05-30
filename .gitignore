@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+api_translate.db
+.env
+dist/
+build/
+*.spec
+!api_translate.spec
+.pytest_cache/
+.mypy_cache/
+exports/
+frontend/node_modules/
+frontend/dist/

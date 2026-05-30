@@ -1,0 +1,31 @@
+.github-btn {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 10px;
+  color: #111;
+  text-decoration: none;
+  transition: width 180ms ease, box-shadow 180ms ease;
+  backdrop-filter: blur(6px);
+}
+.github-btn img { display: block }
+.github-btn span {
+  opacity: 0;
+  white-space: nowrap;
+  transition: opacity 180ms ease;
+  font-size: 13px;
+}
+.github-btn:hover {
+  width: 140px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+}
+.github-btn:hover span { opacity: 1 }
