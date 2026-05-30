@@ -508,7 +508,7 @@ def docs_payload(db: Session) -> dict[str, Any]:
     providers = [serialize_provider(item) for item in db.scalars(select(Provider).order_by(Provider.display_name)).all()]
     return {
         "sections": [
-            {"title": "Install", "content": ["git clone <repo>", "pip install -r requirements.txt", "python main.py"]},
+            {"title": "Install", "content": ["git clone https://github.com/StarGazerDevelopment/API_TRANSLATE.git", "pip install -r requirements.txt", "python main.py"]},
             {"title": "Local Gateway", "content": [f"{item['method']} {item['path']}" for item in endpoints]},
             {"title": "Providers", "content": [f"{item['displayName']} ({item['slug']})" for item in providers]},
             {"title": "Examples", "content": [f'curl -X POST {base_url}/v1/chat/completions -H "Content-Type: application/json" -d "{{\\"model\\": \\"gpt-4o-mini\\", \\"messages\\": [{{\\"role\\": \\"user\\", \\"content\\": \\"Hello\\"}}]}}"']},

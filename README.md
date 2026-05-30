@@ -30,7 +30,7 @@ It combines a FastAPI backend, a React dashboard, a Blockly endpoint builder, SQ
 ## Installation
 ### Python Mode
 ```bash
-git clone <repo>
+git clone https://github.com/StarGazerDevelopment/API_TRANSLATE.git
 cd API_Translate
 pip install -r requirements.txt
 python main.py

@@ -7,6 +7,7 @@ from fastapi.testclient import TestClient
 
 from app.main import create_app
 from app import services
+import app.main as app_main
 
 
 client = TestClient(create_app(minimal=True))
@@ -93,3 +94,15 @@ def test_generate_windows_bundle_copies_artifact_to_requested_path(tmp_path: Pat
     assert result["artifactPath"] == str(target_artifact)
     assert target_artifact.exists()
     assert not (tmp_path / ".pyinstaller").exists()
+
+
+def test_non_minimal_run_shows_setup_page_when_frontend_build_missing(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setattr(app_main, "FRONTEND_DIST_DIR", tmp_path / "missing-dist")
+    monkeypatch.setattr(app_main, "_build_frontend", lambda: (False, "build failed"))
+
+    app = create_app(minimal=False)
+    response = TestClient(app).get("/")
+
+    assert response.status_code == 200
+    assert "not in minimal mode" in response.text
+    assert "build failed" in response.text
