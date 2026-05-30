@@ -36,6 +36,8 @@ pip install -r requirements.txt
 python main.py
 ```
 
+The repository already includes the built dashboard in `frontend/dist`, so Python mode does not require Node.js or `npm` on the machine that runs the app.
+
 If `localhost:8000` is already used by another app on your machine, start AI-Translator on a different port:
 
 ```bash
@@ -48,7 +50,7 @@ docker compose up
 ```
 
 ## Development Setup
-The repository includes the React source in `frontend/`.
+The repository includes both the React source in `frontend/` and the prebuilt dashboard assets in `frontend/dist`.
 
 To work on the frontend locally:
 
